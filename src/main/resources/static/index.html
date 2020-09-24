@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous">
+</head>
+<body class="d-flex flex-column h-100">
+<header style="flex: 0 0 auto;" class="container-fluid bg-primary mb-3 p-3">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-white">"Укротитель" ссылок :)</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main style="flex: 1 0 auto;" class="container-fluid mb-3">
+    <section id="createUrlSection" class="container mb-2">
+        <div class="row flex-column">
+            <div class="col">
+                <h1>Вставьте ссылку</h1>
+                <form id="submit-new-url-form" class="form-inline">
+                    <div class="form-group mr-3">
+                        <input class="form-control mr-3" placeholder="Здесь" required />
+                        <button class="btn btn-primary" onclick="createShortUrl(this.form); return false">Укротить</button>
+                    </div>
+                    <div class="form-check-inline">
+                        <input id="alg-uuid" class="form-check-input" type="radio" value="UUID" name="type" checked />
+                        <label for="alg-uuid">UUID</label>
+                    </div>
+
+                    <div class="form-check-inline">
+                        <input id="alg-sha_256" class="form-check-input" type="radio" value="SHA_256" name="type" />
+                        <label for="alg-sha_256">SHA-256</label>
+                    </div>
+                </form>
+            </div>
+            <div class="col mt-2">
+                <h3>Примеры ввода</h3>
+                <ul class="list-unstyled">
+                    <li>https://yandex.ru</li>
+                    <li>https://mail.ru</li>
+                    <li>https://rambler.ru</li>
+                </ul>
+            </div>
+            <div id="errors" class="col mt-2 mb-2"></div>
+        </div>
+    </section>
+
+    <section id="presentShortUrlSection" class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <table id="table-urls" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Код</th>
+                        <th>Ссылка</th>
+                        <th>Расположение</th>
+                        <th>Дата</th>
+                        <th>Переходов</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <button id="update-table-url" class="btn btn-primary mt-2">Обновить</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer style="flex: 0 0 auto;" class="container-fluid bg-dark flex-grow-0">
+    <div class="row">
+        <div class="col text-center">
+            <span class="text-white">(с) "Укротитель" 2020</span>
+        </div>
+    </div>
+</footer>
+<script type="application/javascript" src="main.js"></script>
+</body>
+</html>
