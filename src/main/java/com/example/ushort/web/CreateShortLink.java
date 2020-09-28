@@ -1,22 +1,22 @@
 package com.example.ushort.web;
 
 import com.example.ushort.service.generate.GenerationType;
-import lombok.Data;
+import lombok.Value;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-@Data
+@Value
 public class CreateShortLink {
 
     @NotNull
     @Pattern(regexp = "^(http|https?://)([\\da-z.-]+)\\.([a-z.]{2,6})([/\\w .-]*)*/?$")
-    private final String location;
+    String location;
 
     @Min(4)
-    private final Integer length;
+    Integer length;
 
     @NotNull
-    private final GenerationType type;
+    GenerationType type;
 }
