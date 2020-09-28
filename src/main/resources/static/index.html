@@ -26,17 +26,33 @@
                 <h1>Вставьте ссылку</h1>
                 <form id="submit-new-url-form" class="form-inline">
                     <div class="form-group mr-3">
-                        <input class="form-control mr-3" placeholder="Здесь" required />
-                        <button class="btn btn-primary" onclick="createShortUrl(this.form); return false">Кодировать</button>
+                        <input class="form-control mr-3" placeholder="Здесь" required/>
+                        <button class="btn btn-primary" onclick="createShortUrl(this.form); return false">Кодировать
+                        </button>
                     </div>
                     <div class="form-check-inline">
-                        <input id="alg-uuid" class="form-check-input" type="radio" value="UUID" name="type" checked />
+                        <input id="alg-uuid" class="form-check-input" type="radio" value="UUID" name="type" checked/>
                         <label for="alg-uuid">UUID</label>
                     </div>
 
                     <div class="form-check-inline">
-                        <input id="alg-sha_256" class="form-check-input" type="radio" value="SHA_256" name="type" />
+                        <input id="alg-sha_256" class="form-check-input" type="radio" value="SHA_256" name="type"/>
                         <label for="alg-sha_256">SHA-256</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                                id="url-length"
+                                class="col-6 form-control-range"
+                                name="length"
+                                type="range"
+                                value="4"
+                                min="4"
+                                max="20"
+                                step="1"
+                                required
+                        />
+                        <label class="ml-3" for="url-length">4</label>
                     </div>
                 </form>
             </div>

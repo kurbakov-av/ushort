@@ -35,7 +35,7 @@ public class ShortLinkController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/generate")
     public ShortLink generate(@RequestBody @Valid CreateShortLink link) {
-        return shortLinkService.create(link.getLocation(), link.getType());
+        return shortLinkService.create(link.getLocation(), link.getLength(), link.getType());
     }
 
     @GetMapping(path = "/{trackId}")

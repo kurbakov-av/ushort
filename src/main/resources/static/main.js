@@ -4,10 +4,14 @@ const apiUrl = 'http://localhost:8080/api'
 
 const submitNewUrlForm = document.getElementById('submit-new-url-form')
 const tableUrls = document.getElementById('table-urls');
+const rangeInput = document.getElementById('url-length')
 let urlItems = []
 
 window.addEventListener('load', async () => loadUrls())
 document.getElementById('update-table-url').addEventListener('click', () => loadUrls())
+rangeInput.addEventListener('input', (e) => {
+    rangeInput.parentElement.getElementsByTagName('label')[0].innerText = e.target.value
+})
 
 const createShortUrl = async (e) => {
     document.getElementById('errors').innerHTML = ''
@@ -16,9 +20,11 @@ const createShortUrl = async (e) => {
     const type = inputs[1].checked
         ? inputs[1].value
         : inputs[2].value
+    const rangeValue = inputs[3].value
 
     const requestBody = {
         location: inputUrl.value,
+        length: rangeValue,
         type: type
     }
 

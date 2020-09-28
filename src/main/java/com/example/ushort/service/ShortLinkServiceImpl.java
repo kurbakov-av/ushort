@@ -26,9 +26,9 @@ public class ShortLinkServiceImpl implements ShortLinkService {
     private final ShortLinkSearchService jpaShortLinkSearch;
 
     @Override
-    public ShortLink create(String location, GenerationType generationType) {
+    public ShortLink create(String location, int length, GenerationType generationType) {
         String trackId;
-        int trackIdLength = 4;
+        int trackIdLength = length;
         int currentAttempt = 1;
 
         ShortLinkGenerate generator = getGenerator(location, generationType);
